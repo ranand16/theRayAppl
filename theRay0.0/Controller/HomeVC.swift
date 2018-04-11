@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let HomeStruct = homeCellStruct()
     @IBOutlet weak var homeCV: UICollectionView!
+    override var prefersStatusBarHidden: Bool { return  true } // hides the status bar i.e; battery bar
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homeCV.register(UINib(nibName: "HomeCVC", bundle: nil), forCellWithReuseIdentifier: "homeCell")
@@ -30,5 +33,8 @@ class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         return cell
     }
     
-
+    @IBAction func logoutPressed(_ sender: Any) {
+        PFUser.logOut()
+        performSegue(withIdentifier: "logoutSegue", sender: self)
+    }
 }
