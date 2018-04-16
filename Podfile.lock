@@ -4,14 +4,17 @@ PODS:
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
+  - SwiftMoment (0.7)
 
 DEPENDENCIES:
   - Parse
+  - SwiftMoment
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  SwiftMoment: dc6dd27012e267819104cbb03f74ff9192dd0b42
 
-PODFILE CHECKSUM: 092fa2c07dfa767f409249af96ea4fa55a0176eb
+PODFILE CHECKSUM: 87d72a43d130667450329f285033efba0a16234f
 
 COCOAPODS: 1.4.0

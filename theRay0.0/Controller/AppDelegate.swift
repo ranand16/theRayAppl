@@ -13,8 +13,7 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let config = ParseClientConfiguration{
@@ -23,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = "https://parseapi.back4app.com/"
         }
         Parse.initialize(with: config)
-        UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
         return true
     }
 

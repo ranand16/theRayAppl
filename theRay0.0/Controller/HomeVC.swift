@@ -18,7 +18,6 @@ class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homeCV.register(UINib(nibName: "HomeCVC", bundle: nil), forCellWithReuseIdentifier: "homeCell")
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -33,8 +32,16 @@ class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "homeCellTo\(indexPath.row)", sender: self)
+    }
+    
     @IBAction func logoutPressed(_ sender: Any) {
         PFUser.logOut()
         performSegue(withIdentifier: "logoutSegue", sender: self)
+    }
+    
+    @IBAction func toHomeVC(_ segue: UIStoryboardSegue){
+        
     }
 }

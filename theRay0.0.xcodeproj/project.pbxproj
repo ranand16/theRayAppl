@@ -11,6 +11,7 @@
 		ED290739207BC1DC00E4C493 /* HomeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED290737207BC1DC00E4C493 /* HomeCVC.xib */; };
 		ED29073B207BC2D700E4C493 /* HomeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29073A207BC2D700E4C493 /* HomeStruct.swift */; };
 		ED29073F207BC5D400E4C493 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29073E207BC5D400E4C493 /* HomeVC.swift */; };
+		ED31B118207FC1580043B8A3 /* AttendanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED31B117207FC1580043B8A3 /* AttendanceVC.swift */; };
 		EDC6333C2071041600AEEBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6333B2071041600AEEBF3 /* AppDelegate.swift */; };
 		EDC6333E2071041600AEEBF3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6333D2071041600AEEBF3 /* LoginVC.swift */; };
 		EDC633412071041600AEEBF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC6333F2071041600AEEBF3 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		ED290737207BC1DC00E4C493 /* HomeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCVC.xib; sourceTree = "<group>"; };
 		ED29073A207BC2D700E4C493 /* HomeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStruct.swift; sourceTree = "<group>"; };
 		ED29073E207BC5D400E4C493 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		ED31B117207FC1580043B8A3 /* AttendanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceVC.swift; sourceTree = "<group>"; };
 		EDC633382071041600AEEBF3 /* theRay0.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theRay0.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC6333B2071041600AEEBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDC6333D2071041600AEEBF3 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				EDD70EA120730D4B000AF288 /* IdentityVC.swift */,
 				EDC6333D2071041600AEEBF3 /* LoginVC.swift */,
 				ED29073E207BC5D400E4C493 /* HomeVC.swift */,
+				ED31B117207FC1580043B8A3 /* AttendanceVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,11 +270,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMoment/SwiftMoment.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMoment.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -286,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC6333E2071041600AEEBF3 /* LoginVC.swift in Sources */,
+				ED31B118207FC1580043B8A3 /* AttendanceVC.swift in Sources */,
 				ED29073F207BC5D400E4C493 /* HomeVC.swift in Sources */,
 				EDD70EAB20731E2E000AF288 /* IndentityCVC.swift in Sources */,
 				EDD547F62074477D00EFF161 /* IdentityStruct.swift in Sources */,

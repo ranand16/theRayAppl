@@ -8,5 +8,6 @@ target ‘theRay0.0’ do
   # Pods for theRay0.0
 
 pod ‘Parse’
+pod 'SwiftMoment'
 
 end
