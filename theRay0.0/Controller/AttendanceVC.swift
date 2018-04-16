@@ -18,14 +18,16 @@ class AttendanceVC: UIViewController {
     var classes = [[String]]()
     
     override func viewDidLoad() {
+        noClassesAssigned.numberOfLines = 4
+        noClassesAssigned.sizeToFit()
+        noClassesAssigned.center = self.view.center
         super.viewDidLoad()
         let currentUser = PFUser.current()
-        if(!(currentUser?.value(forKey: "isWhat") as! String).contains("TEACHER")){
+        if(!(currentUser?.value(forKey: "isWhat") as! String).contains("TEACHER") || !(currentUser?.value(forKey: "isWhat") as! String).contains("PRINCIPAL")){
             print(currentUser?.value(forKey: "isWhat") as! String)
             noClassesAssigned.isHidden = false // show the messageLabel
             noClassesAssigned.text = "You dont have permission to take attendance"
         } else{
-            
             if(currentUser?.value(forKeyPath: "classAssigned")==nil){
                 noClassesAssigned.text = "You have no classes now"
                 noClassesAssigned.isHidden = false // show the messageLabel
@@ -34,7 +36,6 @@ class AttendanceVC: UIViewController {
                 let hr = moment();
                 print(hr.hour)
                 if(hr.hour<7 || hr.hour>15){
-                    noClassesAssigned.numberOfLines = 4
                     noClassesAssigned.isHidden = false // show the messageLabel
                     noClassesAssigned.text = "You are only allowed to take attendance in school hours"
                 } else{
