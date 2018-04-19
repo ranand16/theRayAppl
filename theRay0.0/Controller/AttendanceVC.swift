@@ -13,8 +13,10 @@ import SwiftMoment
 class AttendanceVC: UIViewController {
     
     @IBOutlet weak var noClassesAssigned: UILabel!
+    @IBOutlet weak var classButton: UIButton!
     var x = Int()
     var y = Int()
+    var attendaceClass = String()
     var classes = [[String]]()
     
     override func viewDidLoad() {
@@ -28,6 +30,7 @@ class AttendanceVC: UIViewController {
                 noClassesAssigned.numberOfLines = 4
                 noClassesAssigned.sizeToFit()
                 noClassesAssigned.center = self.view.center
+                classButton.isHidden = true
             } else{
                 
                 let hr = moment();
@@ -38,6 +41,9 @@ class AttendanceVC: UIViewController {
                     noClassesAssigned.numberOfLines = 4
                     noClassesAssigned.sizeToFit()
                     noClassesAssigned.center = self.view.center
+                    
+                    classButton.isHidden = true
+                    
                 } else{
                     let dayCommence = moment(currentUser?.value(forKey: "dayCommence") as! String)?.get("H");
                     let sessionCommence = moment(currentUser?.value(forKey: "sessionCommence") as! Date)
@@ -49,6 +55,13 @@ class AttendanceVC: UIViewController {
                     y = ((diffDays%7)*8) + diffHours; // 4*8 + 4 = 35
                     
                     classes = currentUser?.value(forKey: "classAssigned") as! [[String]];
+                    print(classes)
+                    
+//                    moment().format('dddd');
+                    let weekDay = moment().weekdayName
+                    let weeKDayNum = moment().weekday
+                    attendaceClass = classes[weeKDayNum-1][diffHours]
+                    classButton.setTitle(attendaceClass, for: .normal)
                 }
             }
         } else{
@@ -58,6 +71,12 @@ class AttendanceVC: UIViewController {
             noClassesAssigned.numberOfLines = 4
             noClassesAssigned.sizeToFit()
             noClassesAssigned.center = self.view.center
+            
+            classButton.isHidden = true
         }
+    }
+    
+    @IBAction func classPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toAttendanceModal", sender: self)
     }
 }
