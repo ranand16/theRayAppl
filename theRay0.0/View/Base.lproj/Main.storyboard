@@ -304,7 +304,7 @@
                     <connections>
                         <outlet property="classButton" destination="f7u-gs-Idc" id="GhL-4f-MVa"/>
                         <outlet property="noClassesAssigned" destination="Yi0-11-fWi" id="N33-bg-RH9"/>
-                        <segue destination="rSv-o4-YCk" kind="presentation" identifier="toAttendanceModal" id="hab-Um-spx"/>
+                        <segue destination="eNa-ra-YA3" kind="presentation" identifier="toAttendancesModal" id="KE0-1A-43y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5y-lV-Euj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -312,50 +312,61 @@
             </objects>
             <point key="canvasLocation" x="-630.43478260869574" y="1536.6847826086957"/>
         </scene>
-        <!--Attendance ModalVC-->
-        <scene sceneID="oYK-Br-LGr">
+        <!--Attendance Modal View Controller-->
+        <scene sceneID="FhJ-kT-weg">
             <objects>
-                <viewController id="rSv-o4-YCk" customClass="AttendanceModalVC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="n72-vW-jzY">
+                <viewController id="eNa-ra-YA3" customClass="AttendanceModalViewController" customModule="theRay0_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hoZ-uQ-W93">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uPx-tp-uTm">
-                                <rect key="frame" x="0.0" y="20" width="414" height="640"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="rSv-o4-YCk" id="bJl-ug-brl"/>
-                                    <outlet property="delegate" destination="rSv-o4-YCk" id="OYQ-gS-pAp"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba0-dk-UII">
-                                <rect key="frame" x="20" y="668" width="175" height="48"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRU-EJ-Ry5">
+                                <rect key="frame" x="20" y="659" width="171" height="57"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="sendBtnPressed:" destination="eNa-ra-YA3" eventType="touchUpInside" id="8mp-Bw-EfK"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mel-PC-Ugt">
-                                <rect key="frame" x="219" y="668" width="175" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoN-oS-BhT">
+                                <rect key="frame" x="225" y="659" width="169" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="ruA-LS-MxI" kind="unwind" unwindAction="toHomeVC:" id="6Ti-nh-Cgd"/>
+                                    <segue destination="0Aa-Ka-Q1f" kind="unwind" unwindAction="toHomeVC:" id="eXQ-hg-0cd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwE-Fc-VD8">
+                                <rect key="frame" x="20" y="304" width="374" height="63"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V4y-gI-tCu">
+                                <rect key="frame" x="0.0" y="20" width="414" height="631"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="eNa-ra-YA3" id="aXT-sq-1Bi"/>
+                                    <outlet property="delegate" destination="eNa-ra-YA3" id="Cvu-Jj-3hi"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="LBS-2f-bLU"/>
+                        <viewLayoutGuide key="safeArea" id="1qm-lQ-ZGX"/>
                     </view>
                     <connections>
-                        <outlet property="studentsName" destination="uPx-tp-uTm" id="MGI-sW-AVx"/>
+                        <outlet property="message" destination="dwE-Fc-VD8" id="RkD-ln-OFD"/>
+                        <outlet property="studNameTable" destination="V4y-gI-tCu" id="RMQ-Ba-FMY"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ld-DR-Iua" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ruA-LS-MxI" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="74v-of-XIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0Aa-Ka-Q1f" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-630.43478260869574" y="2253.2608695652175"/>
+            <point key="canvasLocation" x="-630.43478260869574" y="2251.630434782609"/>
         </scene>
         <!--Search-->
         <scene sceneID="fwj-KJ-kRA">

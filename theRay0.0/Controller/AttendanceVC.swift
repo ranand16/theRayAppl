@@ -21,7 +21,6 @@ class AttendanceVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let currentUser = PFUser.current()
         if((currentUser?.value(forKey: "isWhat") as! String).contains("TEACHER")){
             if(currentUser?.value(forKeyPath: "classAssigned")==nil){
@@ -32,18 +31,14 @@ class AttendanceVC: UIViewController {
                 noClassesAssigned.center = self.view.center
                 classButton.isHidden = true
             } else{
-                
                 let hr = moment();
-                
-                if(hr.hour<7 || hr.hour>15){
+                if(hr.hour<15 || hr.hour>23){
                     noClassesAssigned.isHidden = false // show the messageLabel
                     noClassesAssigned.text = "You are only allowed to take attendance in school hours"
                     noClassesAssigned.numberOfLines = 4
                     noClassesAssigned.sizeToFit()
                     noClassesAssigned.center = self.view.center
-                    
                     classButton.isHidden = true
-                    
                 } else{
                     let dayCommence = moment(currentUser?.value(forKey: "dayCommence") as! String)?.get("H");
                     let sessionCommence = moment(currentUser?.value(forKey: "sessionCommence") as! Date)
@@ -71,12 +66,20 @@ class AttendanceVC: UIViewController {
             noClassesAssigned.numberOfLines = 4
             noClassesAssigned.sizeToFit()
             noClassesAssigned.center = self.view.center
-            
             classButton.isHidden = true
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier=="toAttendancesModal"){
+            let destVC = segue.destination as! AttendanceModalViewController
+            destVC.classForAttendance = self.attendaceClass
+            destVC.x = self.x
+            destVC.y = self.y
+        }
+    }
+    
     @IBAction func classPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toAttendanceModal", sender: self)
+        performSegue(withIdentifier: "toAttendancesModal", sender: self)
     }
 }
