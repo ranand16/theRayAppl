@@ -40,16 +40,13 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
                     self.message.numberOfLines = 3
                     self.message.sizeToFit()
                     self.message.center = self.view.center
-
                 } else{
-                    
                     self.studNameTable.isHidden = false
                     for obj in objs!{
                         self.attendanceObjs.append(obj)
                         self.studNames.append(obj.value(forKey: "studName") as! String)
                     }
                     self.studNameTable.reloadData()
-                    
                 }
             })
         }

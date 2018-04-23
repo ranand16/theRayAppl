@@ -22,7 +22,10 @@ class AttendanceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUser = PFUser.current()
-        if((currentUser?.value(forKey: "isWhat") as! String).contains("TEACHER")){
+        let dayCommence = moment(currentUser?.value(forKey: "dayCommence") as! String)?.get("H");
+        let dayEnds = moment(currentUser?.value(forKey: "dayEnds") as! String)?.get("H");
+        let sessionCommence = moment(currentUser?.value(forKey: "sessionCommence") as! Date)
+        if((currentUser?.value(forKey: "isWhat") as! String).contains("TEACHER")){// if the user is a teacher
             if(currentUser?.value(forKeyPath: "classAssigned")==nil){
                 noClassesAssigned.text = "You have no classes now"
                 noClassesAssigned.isHidden = false // show the messageLabel
@@ -32,7 +35,7 @@ class AttendanceVC: UIViewController {
                 classButton.isHidden = true
             } else{
                 let hr = moment();
-                if(hr.hour<7 || hr.hour>15){
+                if(hr.hour<dayCommence! || hr.hour>dayEnds!){
                     noClassesAssigned.isHidden = false // show the messageLabel
                     noClassesAssigned.text = "You are only allowed to take attendance in school hours"
                     noClassesAssigned.numberOfLines = 4
@@ -40,8 +43,7 @@ class AttendanceVC: UIViewController {
                     noClassesAssigned.center = self.view.center
                     classButton.isHidden = true
                 } else{
-                    let dayCommence = moment(currentUser?.value(forKey: "dayCommence") as! String)?.get("H");
-                    let sessionCommence = moment(currentUser?.value(forKey: "sessionCommence") as! Date)
+                    
                     let date = moment();
                     let diffHours = hr.hour - dayCommence!; // say 4th hour
                     let diffDays = date.day - sessionCommence.day; // say 60 days
@@ -55,11 +57,17 @@ class AttendanceVC: UIViewController {
 //                    moment().format('dddd');
                     let weekDay = moment().weekdayName
                     let weeKDayNum = moment().weekday
-                    attendaceClass = classes[weeKDayNum-1][diffHours]
-                    classButton.setTitle(attendaceClass, for: .normal)
+                    if(diffHours>4){// this checking is done because lunch break comes after 4th hour
+                        attendaceClass = classes[weeKDayNum-1][diffHours+1]
+                        classButton.setTitle(attendaceClass, for: .normal)
+                    } else {
+                        attendaceClass = classes[weeKDayNum-1][diffHours]
+                        classButton.setTitle(attendaceClass, for: .normal)
+                    }
+                    
                 }
             }
-        } else{
+        } else{ // if the user is not a teacher 
             print(currentUser?.value(forKey: "isWhat") as! String)
             noClassesAssigned.isHidden = false // show the messageLabel
             noClassesAssigned.text = "You dont have permission to take attendance"
