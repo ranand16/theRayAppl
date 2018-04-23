@@ -32,7 +32,7 @@ class AttendanceVC: UIViewController {
                 classButton.isHidden = true
             } else{
                 let hr = moment();
-                if(hr.hour<15 || hr.hour>23){
+                if(hr.hour<7 || hr.hour>15){
                     noClassesAssigned.isHidden = false // show the messageLabel
                     noClassesAssigned.text = "You are only allowed to take attendance in school hours"
                     noClassesAssigned.numberOfLines = 4

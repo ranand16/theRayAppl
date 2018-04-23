@@ -75,9 +75,7 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
                     print("There was an error!!!!")
                 }
             }
-            
 //            print("\(attendanceObj.value(forKey: "studName")) +  index \(index)")
-            
         }
     }
     
@@ -95,14 +93,12 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = studNameTable.cellForRow(at: indexPath) as! AttendanceModalTVCell
-    
         todayAttendance[indexPath.row] = true
 //        print(todayAttendance)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let deseletedCell = studNameTable.cellForRow(at: indexPath) as! AttendanceModalTVCell
-    
         todayAttendance[indexPath.row] = false
 //        print(todayAttendance)
     }
