@@ -46,15 +46,24 @@ class User {
         get{
             return _sessionCommence
         }
+        set{
+            _sessionCommence = newValue
+        }
     }
     var dayCommence : Int{
         get{
             return _dayCommence
         }
+        set{
+            _dayCommence = newValue
+        }
     }
     var dayEnds : Int{
         get{
             return _dayEnds
+        }
+        set{
+            _dayEnds = newValue
         }
     }
     var schoolName : String{
