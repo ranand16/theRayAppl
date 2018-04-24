@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED146688208595D80024D6CC /* weekdayNumber.swift */; };
+		ED27ED66208F7E6C00146495 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED27ED65208F7E6C00146495 /* User.swift */; };
 		ED290738207BC1DC00E4C493 /* HomeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED290736207BC1DC00E4C493 /* HomeCVC.swift */; };
 		ED290739207BC1DC00E4C493 /* HomeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED290737207BC1DC00E4C493 /* HomeCVC.xib */; };
 		ED29073B207BC2D700E4C493 /* HomeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29073A207BC2D700E4C493 /* HomeStruct.swift */; };
@@ -33,6 +34,7 @@
 		9AF144D545290E3DD2C7DEDD /* Pods-theRay0.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.release.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.release.xcconfig"; sourceTree = "<group>"; };
 		CA2BAFD4DD1FA4B3A8FE0235 /* Pods-theRay0.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.debug.xcconfig"; sourceTree = "<group>"; };
 		ED146688208595D80024D6CC /* weekdayNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekdayNumber.swift; sourceTree = "<group>"; };
+		ED27ED65208F7E6C00146495 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED290736207BC1DC00E4C493 /* HomeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCVC.swift; sourceTree = "<group>"; };
 		ED290737207BC1DC00E4C493 /* HomeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCVC.xib; sourceTree = "<group>"; };
 		ED29073A207BC2D700E4C493 /* HomeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStruct.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				EDD547F52074477D00EFF161 /* IdentityStruct.swift */,
 				ED29073A207BC2D700E4C493 /* HomeStruct.swift */,
 				ED146688208595D80024D6CC /* weekdayNumber.swift */,
+				ED27ED65208F7E6C00146495 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED27ED66208F7E6C00146495 /* User.swift in Sources */,
 				EDC6333E2071041600AEEBF3 /* LoginVC.swift in Sources */,
 				ED31B118207FC1580043B8A3 /* AttendanceVC.swift in Sources */,
 				ED29073F207BC5D400E4C493 /* HomeVC.swift in Sources */,
