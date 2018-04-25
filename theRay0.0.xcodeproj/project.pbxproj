@@ -15,7 +15,8 @@
 		ED29073B207BC2D700E4C493 /* HomeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29073A207BC2D700E4C493 /* HomeStruct.swift */; };
 		ED29073F207BC5D400E4C493 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29073E207BC5D400E4C493 /* HomeVC.swift */; };
 		ED31B118207FC1580043B8A3 /* AttendanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED31B117207FC1580043B8A3 /* AttendanceVC.swift */; };
-		ED3399952090D1AE008AAFFF /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3399942090D1AE008AAFFF /* Attendance.swift */; };
+		ED3399952090D1AE008AAFFF /* AttendanceIdentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3399942090D1AE008AAFFF /* AttendanceIdentification.swift */; };
+		ED3399972090E57B008AAFFF /* AttendanceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3399962090E57B008AAFFF /* AttendanceObject.swift */; };
 		EDBAD56E20863C3E00C34885 /* AttendanceModalTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBAD56C20863C3E00C34885 /* AttendanceModalTVCell.swift */; };
 		EDBAD56F20863C3E00C34885 /* AttendanceModalTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBAD56D20863C3E00C34885 /* AttendanceModalTVCell.xib */; };
 		EDC6333C2071041600AEEBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6333B2071041600AEEBF3 /* AppDelegate.swift */; };
@@ -43,7 +44,8 @@
 		ED29073A207BC2D700E4C493 /* HomeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStruct.swift; sourceTree = "<group>"; };
 		ED29073E207BC5D400E4C493 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		ED31B117207FC1580043B8A3 /* AttendanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceVC.swift; sourceTree = "<group>"; };
-		ED3399942090D1AE008AAFFF /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		ED3399942090D1AE008AAFFF /* AttendanceIdentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceIdentification.swift; sourceTree = "<group>"; };
+		ED3399962090E57B008AAFFF /* AttendanceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceObject.swift; sourceTree = "<group>"; };
 		EDBAD56C20863C3E00C34885 /* AttendanceModalTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalTVCell.swift; sourceTree = "<group>"; };
 		EDBAD56D20863C3E00C34885 /* AttendanceModalTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendanceModalTVCell.xib; sourceTree = "<group>"; };
 		EDC633382071041600AEEBF3 /* theRay0.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theRay0.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +155,8 @@
 				ED29073A207BC2D700E4C493 /* HomeStruct.swift */,
 				ED146688208595D80024D6CC /* weekdayNumber.swift */,
 				ED27ED65208F7E6C00146495 /* User.swift */,
-				ED3399942090D1AE008AAFFF /* Attendance.swift */,
+				ED3399942090D1AE008AAFFF /* AttendanceIdentification.swift */,
+				ED3399962090E57B008AAFFF /* AttendanceObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,12 +332,13 @@
 				EDCF9245208B7E630079B705 /* AttendanceModalViewController.swift in Sources */,
 				ED127DAD20901FAD00B92E74 /* LoginViewLabel.swift in Sources */,
 				ED290738207BC1DC00E4C493 /* HomeCVC.swift in Sources */,
-				ED3399952090D1AE008AAFFF /* Attendance.swift in Sources */,
+				ED3399952090D1AE008AAFFF /* AttendanceIdentification.swift in Sources */,
 				ED29073B207BC2D700E4C493 /* HomeStruct.swift in Sources */,
 				EDBAD56E20863C3E00C34885 /* AttendanceModalTVCell.swift in Sources */,
 				EDC6333C2071041600AEEBF3 /* AppDelegate.swift in Sources */,
 				EDD70EA220730D4B000AF288 /* IdentityVC.swift in Sources */,
 				ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */,
+				ED3399972090E57B008AAFFF /* AttendanceObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

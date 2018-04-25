@@ -8,11 +8,11 @@
 
 import Foundation
 
-class AttendanceObj{
+class AttendanceIdentification{
     private var _x = Int()
     private var _y = Int()
     private var _attendaceClass = String()
-    
+
     var x: Int{
         get{
             return _x

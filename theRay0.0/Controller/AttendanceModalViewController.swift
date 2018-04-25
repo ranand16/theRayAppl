@@ -12,28 +12,25 @@ import Parse
 class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var studNameTable: UITableView!
     @IBOutlet weak var message: UILabel!
-    var classForAttendance = String()
-    var studCount = Int() // number of students in this particular class
-    var studNames = [String]() // have all the student names in this array
+    let attendanceId = AttendanceIdentification()
+    let attendanceObj = AttendanceObject()
+//    var todayAttendance = [Bool]() // to store one day attendance for this class
+//    var attendanceObjs = [PFObject]()
+//    var studNames = [String]() // have all the student names in this array
     
-    var x = Int()
-    var y = Int()
-    var todayAttendance = [Bool]() // to store one day attendance for this class
-    var attendanceObjs = [PFObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.studNameTable.isHidden = true
         self.message.isHidden = true
-        print(classForAttendance)
+        print(attendanceId.attendanceClass)
         self.studNameTable.register(UINib(nibName: "AttendanceModalTVCell", bundle: nil), forCellReuseIdentifier: "AttendanceModalCell")
-        if(classForAttendance == ""){
+        if(attendanceId.attendanceClass == ""){
             print("there was an error!!")
         } else{
             let query = PFQuery(className: "AttendanceInfo")
-            query.whereKey("classId" , equalTo: self.classForAttendance)
+            query.whereKey("classId" , equalTo: self.attendanceId.attendanceClass)
             query.findObjectsInBackground(block: { (objs, err) in
-            
-            self.studCount = (objs?.count)!
+                self.attendanceObj.studentCount = (objs?.count)!
                 if(objs?.count == nil || objs?.count == 0){
                     self.message.text = "No students in this class!!"
                     self.message.isHidden = false // show the messageLabel
@@ -43,8 +40,8 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
                 } else{
                     self.studNameTable.isHidden = false
                     for obj in objs!{
-                        self.attendanceObjs.append(obj)
-                        self.studNames.append(obj.value(forKey: "studName") as! String)
+                        self.attendanceObj.attendanceObjs.append(obj)
+                        self.attendanceObj.studentNames.append(obj.value(forKey: "studName") as! String)
                     }
                     self.studNameTable.reloadData()
                 }
@@ -53,18 +50,18 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     @IBAction func sendBtnPressed(_ sender: Any) {
-        print(todayAttendance)
+        print(attendanceObj.todayAttendance)
         var attendanceEachChildObj = [[Int]]()
-        for (index,attendanceObj) in attendanceObjs.enumerated(){
-            print("\(attendanceObjs[index].value(forKey: "studName")) [\(x)][\(y)]")
-            attendanceEachChildObj = attendanceObjs[index].value(forKey: "attendance") as! [[Int]];
-            if(todayAttendance[index] == true){
-                attendanceEachChildObj[x][y] = 1;
+        for (index,attendanceObject) in attendanceObj.attendanceObjs.enumerated(){
+            print("\(attendanceObj.attendanceObjs[index].value(forKey: "studName")) [\(attendanceId.x)][\(attendanceId.y)]")
+            attendanceEachChildObj = attendanceObj.attendanceObjs[index].value(forKey: "attendance") as! [[Int]];
+            if(attendanceObj.todayAttendance[index] == true){
+                attendanceEachChildObj[attendanceId.x][attendanceId.y] = 1;
             }else{
-                attendanceEachChildObj[x][y] = 0;
+                attendanceEachChildObj[attendanceId.x][attendanceId.y] = 0;
             }
-            (attendanceObjs[index])["attendance"] = attendanceEachChildObj;
-            attendanceObjs[index].saveInBackground {
+            (attendanceObj.attendanceObjs[index])["attendance"] = attendanceEachChildObj;
+            attendanceObj.attendanceObjs[index].saveInBackground {
                 (success: Bool, error: Error?) in
                 if (success) {
                     print("successfully saved!!!")
@@ -77,27 +74,27 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studCount
+        return attendanceObj.studentCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = studNameTable.dequeueReusableCell(withIdentifier: "AttendanceModalCell", for: indexPath) as! AttendanceModalTVCell
-        cell.firstName.text = self.studNames[indexPath.row] // setting the name of each child in the table
+        cell.firstName.text = attendanceObj.studentNames[indexPath.row] // setting the name of each child in the table
         
-        todayAttendance.append(false) // making all the children present by default
+        attendanceObj.todayAttendance.append(false) // making all the children present by default
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = studNameTable.cellForRow(at: indexPath) as! AttendanceModalTVCell
-        todayAttendance[indexPath.row] = true
-//        print(todayAttendance)
+        attendanceObj.todayAttendance[indexPath.row] = true
+//        print(attendanceObj.todayAttendance)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let deseletedCell = studNameTable.cellForRow(at: indexPath) as! AttendanceModalTVCell
-        todayAttendance[indexPath.row] = false
-//        print(todayAttendance)
+        attendanceObj.todayAttendance[indexPath.row] = false
+//        print(attendanceObj.todayAttendance)
     }
     
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

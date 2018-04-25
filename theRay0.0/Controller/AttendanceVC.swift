@@ -15,7 +15,7 @@ class AttendanceVC: UIViewController {
     @IBOutlet weak var classButton: UIButton!
 
     let user = User()
-    let attendanceObj = AttendanceObj()
+    let attendanceIdentification = AttendanceIdentification()
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUser = PFUser.current()
@@ -52,18 +52,18 @@ class AttendanceVC: UIViewController {
                     let diffHours = hr.hour - user.dayCommence; // say 4th hour
                     let diffDays = date.day - sessionCommenceMoment.day; // say 60 days
                     
-                    attendanceObj.x = diffDays/7 ; // 60/7 = 8 - 1 = 7
-                    attendanceObj.y = ((diffDays%7)*8) + diffHours; // 4*8 + 4 = 35
+                    attendanceIdentification.x = diffDays/7 ; // 60/7 = 8 - 1 = 7
+                    attendanceIdentification.y = ((diffDays%7)*8) + diffHours; // 4*8 + 4 = 35
                     print(user.classesAssigned)
 //                    moment().format('dddd');
                     let weekDay = moment().weekdayName
                     let weeKDayNum = moment().weekday
                     if(diffHours>4){// this checking is done because lunch break comes after 4th hour
-                        attendanceObj.attendanceClass = user.classesAssigned[weeKDayNum-1][diffHours+1]
-                        classButton.setTitle(attendanceObj.attendanceClass, for: .normal)
+                        attendanceIdentification.attendanceClass = user.classesAssigned[weeKDayNum-1][diffHours+1]
+                        classButton.setTitle(attendanceIdentification.attendanceClass, for: .normal)
                     } else {
-                        attendanceObj.attendanceClass = user.classesAssigned[weeKDayNum-1][diffHours]
-                        classButton.setTitle(attendanceObj.attendanceClass, for: .normal)
+                        attendanceIdentification.attendanceClass = user.classesAssigned[weeKDayNum-1][diffHours]
+                        classButton.setTitle(attendanceIdentification.attendanceClass, for: .normal)
                     }
                 }
             }
@@ -81,9 +81,9 @@ class AttendanceVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="toAttendancesModal"){
             let destVC = segue.destination as! AttendanceModalViewController
-            destVC.classForAttendance = attendanceObj.attendanceClass
-            destVC.x = attendanceObj.x
-            destVC.y = attendanceObj.y
+            destVC.attendanceId.attendanceClass = attendanceIdentification.attendanceClass
+            destVC.attendanceId.x = attendanceIdentification.x
+            destVC.attendanceId.y = attendanceIdentification.y
         }
     }
     
