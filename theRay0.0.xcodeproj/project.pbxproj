@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED127DAD20901FAD00B92E74 /* LoginViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED127DAC20901FAD00B92E74 /* LoginViewLabel.swift */; };
 		ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED146688208595D80024D6CC /* weekdayNumber.swift */; };
 		ED27ED66208F7E6C00146495 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED27ED65208F7E6C00146495 /* User.swift */; };
 		ED290738207BC1DC00E4C493 /* HomeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED290736207BC1DC00E4C493 /* HomeCVC.swift */; };
@@ -14,6 +15,7 @@
 		ED29073B207BC2D700E4C493 /* HomeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29073A207BC2D700E4C493 /* HomeStruct.swift */; };
 		ED29073F207BC5D400E4C493 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29073E207BC5D400E4C493 /* HomeVC.swift */; };
 		ED31B118207FC1580043B8A3 /* AttendanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED31B117207FC1580043B8A3 /* AttendanceVC.swift */; };
+		ED3399952090D1AE008AAFFF /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3399942090D1AE008AAFFF /* Attendance.swift */; };
 		EDBAD56E20863C3E00C34885 /* AttendanceModalTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBAD56C20863C3E00C34885 /* AttendanceModalTVCell.swift */; };
 		EDBAD56F20863C3E00C34885 /* AttendanceModalTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBAD56D20863C3E00C34885 /* AttendanceModalTVCell.xib */; };
 		EDC6333C2071041600AEEBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6333B2071041600AEEBF3 /* AppDelegate.swift */; };
@@ -33,6 +35,7 @@
 		8510574FF18DF02A52C1EFA9 /* Pods_theRay0_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theRay0_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF144D545290E3DD2C7DEDD /* Pods-theRay0.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.release.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.release.xcconfig"; sourceTree = "<group>"; };
 		CA2BAFD4DD1FA4B3A8FE0235 /* Pods-theRay0.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.debug.xcconfig"; sourceTree = "<group>"; };
+		ED127DAC20901FAD00B92E74 /* LoginViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewLabel.swift; sourceTree = "<group>"; };
 		ED146688208595D80024D6CC /* weekdayNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekdayNumber.swift; sourceTree = "<group>"; };
 		ED27ED65208F7E6C00146495 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED290736207BC1DC00E4C493 /* HomeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCVC.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		ED29073A207BC2D700E4C493 /* HomeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStruct.swift; sourceTree = "<group>"; };
 		ED29073E207BC5D400E4C493 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		ED31B117207FC1580043B8A3 /* AttendanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceVC.swift; sourceTree = "<group>"; };
+		ED3399942090D1AE008AAFFF /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
 		EDBAD56C20863C3E00C34885 /* AttendanceModalTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalTVCell.swift; sourceTree = "<group>"; };
 		EDBAD56D20863C3E00C34885 /* AttendanceModalTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendanceModalTVCell.xib; sourceTree = "<group>"; };
 		EDC633382071041600AEEBF3 /* theRay0.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theRay0.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +153,7 @@
 				ED29073A207BC2D700E4C493 /* HomeStruct.swift */,
 				ED146688208595D80024D6CC /* weekdayNumber.swift */,
 				ED27ED65208F7E6C00146495 /* User.swift */,
+				ED3399942090D1AE008AAFFF /* Attendance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				EDD70EA820731DF9000AF288 /* identityCell */,
 				EDC633442071041600AEEBF3 /* LaunchScreen.storyboard */,
 				EDC6333F2071041600AEEBF3 /* Main.storyboard */,
+				ED127DAC20901FAD00B92E74 /* LoginViewLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,7 +327,9 @@
 				EDD70EAB20731E2E000AF288 /* IndentityCVC.swift in Sources */,
 				EDD547F62074477D00EFF161 /* IdentityStruct.swift in Sources */,
 				EDCF9245208B7E630079B705 /* AttendanceModalViewController.swift in Sources */,
+				ED127DAD20901FAD00B92E74 /* LoginViewLabel.swift in Sources */,
 				ED290738207BC1DC00E4C493 /* HomeCVC.swift in Sources */,
+				ED3399952090D1AE008AAFFF /* Attendance.swift in Sources */,
 				ED29073B207BC2D700E4C493 /* HomeStruct.swift in Sources */,
 				EDBAD56E20863C3E00C34885 /* AttendanceModalTVCell.swift in Sources */,
 				EDC6333C2071041600AEEBF3 /* AppDelegate.swift in Sources */,

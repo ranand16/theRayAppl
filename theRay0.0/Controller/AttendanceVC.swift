@@ -11,22 +11,26 @@ import Parse
 import SwiftMoment
 
 class AttendanceVC: UIViewController {
-    
     @IBOutlet weak var noClassesAssigned: UILabel!
     @IBOutlet weak var classButton: UIButton!
-    var x = Int()
-    var y = Int()
-    var attendaceClass = String()
-    var classes = [[String]]()
-    
+
+    let user = User()
+    let attendanceObj = AttendanceObj()
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUser = PFUser.current()
-        let dayCommence = moment(currentUser?.value(forKey: "dayCommence") as! String)?.get("H");
-        let dayEnds = moment(currentUser?.value(forKey: "dayEnds") as! String)?.get("H");
-        let sessionCommence = moment(currentUser?.value(forKey: "sessionCommence") as! Date)
-        if((currentUser?.value(forKey: "isWhat") as! String).contains("TEACHER")){// if the user is a teacher
-            if(currentUser?.value(forKeyPath: "classAssigned")==nil){
+        user.classesAssigned = currentUser?.value(forKey: "classAssigned") as! [[String]]
+        user.dayCommence = (moment(currentUser?.value(forKey: "dayCommence") as! String)?.get("H"))!;
+        user.dayEnds = (moment(currentUser?.value(forKey: "dayEnds") as! String)?.get("H"))!;
+        user.sessionCommence = currentUser?.value(forKey: "sessionCommence") as! Date
+        user.isWhat = currentUser?.value(forKey: "isWhat") as! String
+        let sessionCommenceMoment = moment(user.sessionCommence)
+        
+//        let dayCommence = moment(currentUser?.value(forKey: "dayCommence") as! String)?.get("H");
+//        let dayEnds = moment(currentUser?.value(forKey: "dayEnds") as! String)?.get("H");
+//        let sessionCommence = moment(currentUser?.value(forKey: "sessionCommence") as! Date)
+        if(user.isWhat.contains("TEACHER")){// if the user is a teacher
+            if(user.classesAssigned==nil){
                 noClassesAssigned.text = "You have no classes now"
                 noClassesAssigned.isHidden = false // show the messageLabel
                 noClassesAssigned.numberOfLines = 4
@@ -34,8 +38,8 @@ class AttendanceVC: UIViewController {
                 noClassesAssigned.center = self.view.center
                 classButton.isHidden = true
             } else{
-                let hr = moment();
-                if(hr.hour<dayCommence! || hr.hour>dayEnds!){
+                let hr = moment(); // current time
+                if(hr.hour<user.dayCommence || hr.hour>user.dayEnds){
                     noClassesAssigned.isHidden = false // show the messageLabel
                     noClassesAssigned.text = "You are only allowed to take attendance in school hours"
                     noClassesAssigned.numberOfLines = 4
@@ -45,26 +49,22 @@ class AttendanceVC: UIViewController {
                 } else{
                     
                     let date = moment();
-                    let diffHours = hr.hour - dayCommence!; // say 4th hour
-                    let diffDays = date.day - sessionCommence.day; // say 60 days
+                    let diffHours = hr.hour - user.dayCommence; // say 4th hour
+                    let diffDays = date.day - sessionCommenceMoment.day; // say 60 days
                     
-                    x = diffDays/7 ; // 60/7 = 8 - 1 = 7
-                    y = ((diffDays%7)*8) + diffHours; // 4*8 + 4 = 35
-                    
-                    classes = currentUser?.value(forKey: "classAssigned") as! [[String]];
-                    print(classes)
-                    
+                    attendanceObj.x = diffDays/7 ; // 60/7 = 8 - 1 = 7
+                    attendanceObj.y = ((diffDays%7)*8) + diffHours; // 4*8 + 4 = 35
+                    print(user.classesAssigned)
 //                    moment().format('dddd');
                     let weekDay = moment().weekdayName
                     let weeKDayNum = moment().weekday
                     if(diffHours>4){// this checking is done because lunch break comes after 4th hour
-                        attendaceClass = classes[weeKDayNum-1][diffHours+1]
-                        classButton.setTitle(attendaceClass, for: .normal)
+                        attendanceObj.attendanceClass = user.classesAssigned[weeKDayNum-1][diffHours+1]
+                        classButton.setTitle(attendanceObj.attendanceClass, for: .normal)
                     } else {
-                        attendaceClass = classes[weeKDayNum-1][diffHours]
-                        classButton.setTitle(attendaceClass, for: .normal)
+                        attendanceObj.attendanceClass = user.classesAssigned[weeKDayNum-1][diffHours]
+                        classButton.setTitle(attendanceObj.attendanceClass, for: .normal)
                     }
-                    
                 }
             }
         } else{ // if the user is not a teacher 
@@ -81,9 +81,9 @@ class AttendanceVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="toAttendancesModal"){
             let destVC = segue.destination as! AttendanceModalViewController
-            destVC.classForAttendance = self.attendaceClass
-            destVC.x = self.x
-            destVC.y = self.y
+            destVC.classForAttendance = attendanceObj.attendanceClass
+            destVC.x = attendanceObj.x
+            destVC.y = attendanceObj.y
         }
     }
     

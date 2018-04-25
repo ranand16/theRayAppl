@@ -10,8 +10,8 @@ import Foundation
 class User {
     private var _username = String()
     private var _email = String()
-    private var _classAssigned = [[String]]();
-    private var _sessionCommence = Date();
+    private var _classesAssigned = [[String]]();
+    var _sessionCommence = Date();
     private var _dayCommence = Int();
     private var _dayEnds = Int();
     private var _isWhat = String()
@@ -34,12 +34,12 @@ class User {
             _email = newValue
         }
     }
-    var classAssigned: [[String]]{
+    var classesAssigned: [[String]]{
         get{
-            return _classAssigned
+            return _classesAssigned
         }
         set{
-            _classAssigned = newValue
+            _classesAssigned = newValue
         }
     }
     var sessionCommence : Date{
@@ -64,6 +64,14 @@ class User {
         }
         set{
             _dayEnds = newValue
+        }
+    }
+    var isWhat : String{
+        get{
+            return _isWhat
+        }
+        set{
+            _isWhat = newValue
         }
     }
     var schoolName : String{
