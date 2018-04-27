@@ -39,7 +39,7 @@ class User {
             return _classesAssigned
         }
         set{
-            _classesAssigned = newValue
+            _classesAssigned = newValue 
         }
     }
     var sessionCommence : Date{

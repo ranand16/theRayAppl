@@ -19,18 +19,15 @@ class AttendanceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUser = PFUser.current()
-        user.classesAssigned = currentUser?.value(forKey: "classAssigned") as! [[String]]
+        user.classesAssigned = (currentUser?.value(forKey: "classAssigned") as! [[String]])
         user.dayCommence = (moment(currentUser?.value(forKey: "dayCommence") as! String)?.get("H"))!;
         user.dayEnds = (moment(currentUser?.value(forKey: "dayEnds") as! String)?.get("H"))!;
         user.sessionCommence = currentUser?.value(forKey: "sessionCommence") as! Date
         user.isWhat = currentUser?.value(forKey: "isWhat") as! String
         let sessionCommenceMoment = moment(user.sessionCommence)
         
-//        let dayCommence = moment(currentUser?.value(forKey: "dayCommence") as! String)?.get("H");
-//        let dayEnds = moment(currentUser?.value(forKey: "dayEnds") as! String)?.get("H");
-//        let sessionCommence = moment(currentUser?.value(forKey: "sessionCommence") as! Date)
         if(user.isWhat.contains("TEACHER")){// if the user is a teacher
-            if(user.classesAssigned==nil){
+            if(user.classesAssigned==nil || user.classesAssigned[0][0]=="0"){
                 noClassesAssigned.text = "You have no classes now"
                 noClassesAssigned.isHidden = false // show the messageLabel
                 noClassesAssigned.numberOfLines = 4
@@ -68,7 +65,7 @@ class AttendanceVC: UIViewController {
                 }
             }
         } else{ // if the user is not a teacher 
-            print(currentUser?.value(forKey: "isWhat") as! String)
+//            print(currentUser?.value(forKey: "isWhat") as! String)
             noClassesAssigned.isHidden = false // show the messageLabel
             noClassesAssigned.text = "You dont have permission to take attendance"
             noClassesAssigned.numberOfLines = 4

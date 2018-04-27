@@ -14,9 +14,6 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var message: UILabel!
     let attendanceId = AttendanceIdentification()
     let attendanceObj = AttendanceObject()
-//    var todayAttendance = [Bool]() // to store one day attendance for this class
-//    var attendanceObjs = [PFObject]()
-//    var studNames = [String]() // have all the student names in this array
     
     override func viewDidLoad() {
         super.viewDidLoad()

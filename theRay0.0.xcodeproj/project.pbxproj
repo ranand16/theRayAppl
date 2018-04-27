@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED127DAD20901FAD00B92E74 /* LoginViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED127DAC20901FAD00B92E74 /* LoginViewLabel.swift */; };
 		ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED146688208595D80024D6CC /* weekdayNumber.swift */; };
 		ED27ED66208F7E6C00146495 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED27ED65208F7E6C00146495 /* User.swift */; };
 		ED290738207BC1DC00E4C493 /* HomeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED290736207BC1DC00E4C493 /* HomeCVC.swift */; };
@@ -36,7 +35,6 @@
 		8510574FF18DF02A52C1EFA9 /* Pods_theRay0_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theRay0_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF144D545290E3DD2C7DEDD /* Pods-theRay0.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.release.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.release.xcconfig"; sourceTree = "<group>"; };
 		CA2BAFD4DD1FA4B3A8FE0235 /* Pods-theRay0.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.debug.xcconfig"; sourceTree = "<group>"; };
-		ED127DAC20901FAD00B92E74 /* LoginViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewLabel.swift; sourceTree = "<group>"; };
 		ED146688208595D80024D6CC /* weekdayNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekdayNumber.swift; sourceTree = "<group>"; };
 		ED27ED65208F7E6C00146495 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED290736207BC1DC00E4C493 /* HomeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCVC.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 				EDD70EA820731DF9000AF288 /* identityCell */,
 				EDC633442071041600AEEBF3 /* LaunchScreen.storyboard */,
 				EDC6333F2071041600AEEBF3 /* Main.storyboard */,
-				ED127DAC20901FAD00B92E74 /* LoginViewLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,7 +327,6 @@
 				EDD70EAB20731E2E000AF288 /* IndentityCVC.swift in Sources */,
 				EDD547F62074477D00EFF161 /* IdentityStruct.swift in Sources */,
 				EDCF9245208B7E630079B705 /* AttendanceModalViewController.swift in Sources */,
-				ED127DAD20901FAD00B92E74 /* LoginViewLabel.swift in Sources */,
 				ED290738207BC1DC00E4C493 /* HomeCVC.swift in Sources */,
 				ED3399952090D1AE008AAFFF /* AttendanceIdentification.swift in Sources */,
 				ED29073B207BC2D700E4C493 /* HomeStruct.swift in Sources */,
