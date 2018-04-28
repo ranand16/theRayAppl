@@ -34,7 +34,6 @@ class IdentityVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if (segue.identifier == "identityToSign"){
             let receivingView = segue.destination as! LoginVC
             receivingView.identityFrmSegue = (identity.identitiesName[rowNum])

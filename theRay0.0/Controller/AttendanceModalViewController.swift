@@ -84,13 +84,11 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = studNameTable.cellForRow(at: indexPath) as! AttendanceModalTVCell
         attendanceObj.todayAttendance[indexPath.row] = true
-//        print(attendanceObj.todayAttendance)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let deseletedCell = studNameTable.cellForRow(at: indexPath) as! AttendanceModalTVCell
         attendanceObj.todayAttendance[indexPath.row] = false
-//        print(attendanceObj.todayAttendance)
     }
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        cell.isSelected = true

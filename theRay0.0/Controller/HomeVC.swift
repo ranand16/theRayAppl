@@ -35,6 +35,14 @@ class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         performSegue(withIdentifier: "homeCellTo\(indexPath.row)", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "logoutSegue"){ // to go back to login screen as login mode
+            let destVC = segue.destination as! LoginVC
+            destVC.mode = true
+            destVC.identityFrmSegue = ""
+        }
+    }
+    
     @IBAction func logoutPressed(_ sender: Any) {
         PFUser.logOut()
         performSegue(withIdentifier: "logoutSegue", sender: self)

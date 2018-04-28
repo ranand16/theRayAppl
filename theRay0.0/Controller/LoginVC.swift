@@ -17,12 +17,11 @@ class LoginVC: UIViewController {
     @IBOutlet weak var signUpAs: UILabel!
     @IBOutlet weak var signInOrUp: UIButton!
     @IBOutlet weak var signUpOrIn: UIButton!
-    var loginview = loginView() // to manipulate views
+    let loginview = loginView() // to manipulate views
     var identityFrmSegue = String()
     var mode = Bool()
     
     // for toggling the signUp or signIn true for SignIn false for SignUp
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,14 +29,6 @@ class LoginVC: UIViewController {
         print("identityFrmSegue \(identityFrmSegue)")
         loginview.singInOrSignUP(button1: signInOrUp, button2: signUpOrIn, mode: mode)
         loginview.signUpAsText(label: signUpAs, identityFromSegue: identityFrmSegue, mode: mode)
-    }
-    
-    func alertDisplay(title: String, message: String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func signUpOrInPressed(_ sender: Any) {
@@ -51,33 +42,25 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func signInOrUpPressed(_ sender: Any) {
-        let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = .gray
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
+        AlertIndicator.Instance.showActivityIndicator(theView: self.view) // start the activity indicator
         if mode==true {
             // signIn mode
             print("true mode")
-            if(usernameTF.text != nil && passwordTF.text != nil){
+            if(usernameTF.text != "" || passwordTF.text != ""){
                 PFUser.logInWithUsername(inBackground: usernameTF.text!, password: passwordTF.text!, block: { (user, err) in
                     if err != nil{
-                        self.alertDisplay(title: "Error", message: "Please try again later")
-                        activityIndicator.stopAnimating()
-                        UIApplication.shared.endIgnoringInteractionEvents()
+                        AlertIndicator.Instance.alertDisplay(viewController: self, title: "Error", message: "Please try again later")
+                        AlertIndicator.Instance.hideActivityIndicator()
                         self.usernameTF.text = ""
                         self.passwordTF.text = ""
                     } else {
-                        activityIndicator.stopAnimating()
-                        UIApplication.shared.endIgnoringInteractionEvents()
+                        AlertIndicator.Instance.hideActivityIndicator()
                         self.performSegue(withIdentifier: "signToDashboard", sender: self)
                     }
                 })
-                
             } else {
-                self.alertDisplay(title: "Error", message: "Please fill all the fields.")
+                AlertIndicator.Instance.hideActivityIndicator()
+                AlertIndicator.Instance.alertDisplay(viewController: self, title: "Error", message: "Please fill all fields")
             }
         } else {
             // signUp mode
@@ -90,18 +73,16 @@ class LoginVC: UIViewController {
                 user.signUpInBackground(block: { (obj, err) in
                     if (err != nil) {
                         print("We had an error while signup", err.debugDescription)
-                        self.alertDisplay(title: "Error", message: err.debugDescription)
-                        activityIndicator.stopAnimating()
-                        UIApplication.shared.endIgnoringInteractionEvents()
+                        AlertIndicator.Instance.alertDisplay(viewController: self, title: "Error", message: err.debugDescription)
+                        AlertIndicator.Instance.hideActivityIndicator()
                     }else{
                         print("Succesfully cretead the user")
-                        activityIndicator.stopAnimating()
-                        UIApplication.shared.endIgnoringInteractionEvents()
+                        AlertIndicator.Instance.hideActivityIndicator()
                         self.performSegue(withIdentifier: "signToDashboard", sender: self)
                     }
                 })
             }else{
-                self.alertDisplay(title: "Error", message: "Please fill all the fields.")
+                AlertIndicator.Instance.alertDisplay(viewController: self, title: "Error", message: "Please fill all fields.")
             }
         }
     }

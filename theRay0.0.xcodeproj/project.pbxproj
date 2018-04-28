@@ -29,6 +29,7 @@
 		EDD70EAB20731E2E000AF288 /* IndentityCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD70EA920731E2E000AF288 /* IndentityCVC.swift */; };
 		EDD70EAC20731E2E000AF288 /* IndentityCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD70EAA20731E2E000AF288 /* IndentityCVC.xib */; };
 		EDED0D4F2092D066009A0901 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED0D4E2092D066009A0901 /* loginView.swift */; };
+		EDF189B0209435DF00C5D7DA /* AlertIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF189AF209435DF00C5D7DA /* AlertIndicator.swift */; };
 		FF5FECB95A25BC4181944F77 /* Pods_theRay0_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8510574FF18DF02A52C1EFA9 /* Pods_theRay0_0.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		EDD70EA920731E2E000AF288 /* IndentityCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentityCVC.swift; sourceTree = "<group>"; };
 		EDD70EAA20731E2E000AF288 /* IndentityCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndentityCVC.xib; sourceTree = "<group>"; };
 		EDED0D4E2092D066009A0901 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
+		EDF189AF209435DF00C5D7DA /* AlertIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		EDC6333A2071041600AEEBF3 /* theRay0.0 */ = {
 			isa = PBXGroup;
 			children = (
+				EDF189AC209432C700C5D7DA /* Plugins */,
 				EDF56CB12071CE3F007EDE3A /* Model */,
 				EDF56CB22071CE49007EDE3A /* View */,
 				EDF56CB32071CE55007EDE3A /* Controller */,
@@ -146,6 +149,14 @@
 				EDD70EAA20731E2E000AF288 /* IndentityCVC.xib */,
 			);
 			path = identityCell;
+			sourceTree = "<group>";
+		};
+		EDF189AC209432C700C5D7DA /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				EDF189AF209435DF00C5D7DA /* AlertIndicator.swift */,
+			);
+			path = Plugins;
 			sourceTree = "<group>";
 		};
 		EDF56CB12071CE3F007EDE3A /* Model */ = {
@@ -338,6 +349,7 @@
 				EDD70EA220730D4B000AF288 /* IdentityVC.swift in Sources */,
 				ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */,
 				EDED0D4F2092D066009A0901 /* loginView.swift in Sources */,
+				EDF189B0209435DF00C5D7DA /* AlertIndicator.swift in Sources */,
 				ED3399972090E57B008AAFFF /* AttendanceObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
