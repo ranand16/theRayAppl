@@ -14,7 +14,6 @@ class AlertIndicator{
     static var Instance: AlertIndicator{
         return _instance
     }
-    
     let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     
     func showActivityIndicator(theView: UIView){

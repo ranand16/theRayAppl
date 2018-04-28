@@ -18,15 +18,13 @@ class LoginVC: UIViewController {
     @IBOutlet weak var signInOrUp: UIButton!
     @IBOutlet weak var signUpOrIn: UIButton!
     let loginview = loginView() // to manipulate views
-    var identityFrmSegue = String()
+    var identityFrmSegue = String() // nil when signing in and has value when signing up
     var mode = Bool()
     
     // for toggling the signUp or signIn true for SignIn false for SignUp
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("mode == \(mode)")
-        print("identityFrmSegue \(identityFrmSegue)")
         loginview.singInOrSignUP(button1: signInOrUp, button2: signUpOrIn, mode: mode)
         loginview.signUpAsText(label: signUpAs, identityFromSegue: identityFrmSegue, mode: mode)
     }
@@ -64,7 +62,6 @@ class LoginVC: UIViewController {
             }
         } else {
             // signUp mode
-            print("\(mode) mode")
             if(usernameTF.text != nil && passwordTF.text != nil){
                 let user = PFUser()
                 user.username = usernameTF.text
@@ -72,11 +69,9 @@ class LoginVC: UIViewController {
                 user.email = usernameTF.text!+"@xyz.com"
                 user.signUpInBackground(block: { (obj, err) in
                     if (err != nil) {
-                        print("We had an error while signup", err.debugDescription)
                         AlertIndicator.Instance.alertDisplay(viewController: self, title: "Error", message: err.debugDescription)
                         AlertIndicator.Instance.hideActivityIndicator()
                     }else{
-                        print("Succesfully cretead the user")
                         AlertIndicator.Instance.hideActivityIndicator()
                         self.performSegue(withIdentifier: "signToDashboard", sender: self)
                     }

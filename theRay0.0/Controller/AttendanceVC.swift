@@ -27,21 +27,11 @@ class AttendanceVC: UIViewController {
         let sessionCommenceMoment = moment(user.sessionCommence)
         if(user.isWhat.contains("TEACHER")){// if the user is a teacher
             if(user.classesAssigned==nil || user.classesAssigned[0][0]=="0"){
-                noClassesAssigned.text = "You have no classes now"
-                noClassesAssigned.isHidden = false // show the messageLabel
-                noClassesAssigned.numberOfLines = 4
-                noClassesAssigned.sizeToFit()
-                noClassesAssigned.center = self.view.center
-                classButton.isHidden = true
+                AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, button: classButton, text: "You have no classes now")
             } else{
                 let hr = moment(); // current time
                 if(hr.hour<user.dayCommence || hr.hour>user.dayEnds){
-                    noClassesAssigned.isHidden = false // show the messageLabel
-                    noClassesAssigned.text = "You are only allowed to take attendance in school hours"
-                    noClassesAssigned.numberOfLines = 4
-                    noClassesAssigned.sizeToFit()
-                    noClassesAssigned.center = self.view.center
-                    classButton.isHidden = true
+                    AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, button: classButton, text: "You are only allowed to take attendance in school hours")
                 } else{
                     let date = moment();
                     let diffHours = hr.hour - user.dayCommence; // say 4th hour
@@ -61,14 +51,8 @@ class AttendanceVC: UIViewController {
                     }
                 }
             }
-        } else{ // if the user is not a teacher 
-//            print(currentUser?.value(forKey: "isWhat") as! String)
-            noClassesAssigned.isHidden = false // show the messageLabel
-            noClassesAssigned.text = "You dont have permission to take attendance"
-            noClassesAssigned.numberOfLines = 4
-            noClassesAssigned.sizeToFit()
-            noClassesAssigned.center = self.view.center
-            classButton.isHidden = true
+        } else{ // if the user is not a teacher
+            AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, button: classButton, text: "You dont have permission to take attendance")
         }
     }
     
