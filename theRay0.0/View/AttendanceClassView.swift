@@ -15,12 +15,12 @@ class AttendanceClassView{
         return _instance
     }
     
-    func noClassAssignedLabel(view: UIView, label: UILabel, button: UIButton, text: String){
+    func noClassAssignedLabel(view: UIView, label: UILabel, text: String, button: UIButton?){
         label.text = text
         label.isHidden = false // show the messageLabel
         label.numberOfLines = 4
         label.sizeToFit()
         label.center = view.center
-        button.isHidden = true
+        button?.isHidden = true
     }
 }

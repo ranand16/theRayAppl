@@ -29,11 +29,7 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
             query.findObjectsInBackground(block: { (objs, err) in
                 self.attendanceObj.studentCount = (objs?.count)!
                 if(objs?.count == nil || objs?.count == 0){
-                    self.message.text = "No students in this class!!"
-                    self.message.isHidden = false // show the messageLabel
-                    self.message.numberOfLines = 3
-                    self.message.sizeToFit()
-                    self.message.center = self.view.center
+                    AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: self.message, text: "No students in this class!!", button: nil)
                 } else{
                     self.studNameTable.isHidden = false
                     for obj in objs!{

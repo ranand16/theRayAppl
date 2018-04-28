@@ -27,11 +27,11 @@ class AttendanceVC: UIViewController {
         let sessionCommenceMoment = moment(user.sessionCommence)
         if(user.isWhat.contains("TEACHER")){// if the user is a teacher
             if(user.classesAssigned==nil || user.classesAssigned[0][0]=="0"){
-                AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, button: classButton, text: "You have no classes now")
+                AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, text: "You have no classes now",button: classButton )
             } else{
                 let hr = moment(); // current time
                 if(hr.hour<user.dayCommence || hr.hour>user.dayEnds){
-                    AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, button: classButton, text: "You are only allowed to take attendance in school hours")
+                    AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, text: "You are only allowed to take attendance in school hours", button: classButton)
                 } else{
                     let date = moment();
                     let diffHours = hr.hour - user.dayCommence; // say 4th hour
@@ -52,7 +52,7 @@ class AttendanceVC: UIViewController {
                 }
             }
         } else{ // if the user is not a teacher
-            AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, button: classButton, text: "You dont have permission to take attendance")
+            AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, text: "You dont have permission to take attendance", button: classButton)
         }
     }
     
