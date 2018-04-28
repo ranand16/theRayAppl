@@ -10,7 +10,6 @@ import UIKit
 import Parse
 
 class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
     let HomeStruct = homeCellStruct()
     @IBOutlet weak var homeCV: UICollectionView!
     override var prefersStatusBarHidden: Bool { return  true } // hides the status bar i.e; battery bar

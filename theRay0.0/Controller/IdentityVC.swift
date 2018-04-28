@@ -34,19 +34,25 @@ class IdentityVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if (segue.identifier == "identityToSign"){
             let receivingView = segue.destination as! LoginVC
             receivingView.identityFrmSegue = (identity.identitiesName[rowNum])
+            receivingView.mode = false
+        }
+        if(segue.identifier == "signInSegue"){
+            let receivingView = segue.destination as! LoginVC
+            receivingView.identityFrmSegue = ""
+            receivingView.mode = true
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(identity.identitiesName[indexPath.row])
         rowNum = indexPath.row
         performSegue(withIdentifier: "identityToSign", sender: self)
     }
     
     @IBAction func signInBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: "identityToSign", sender: self)
+        performSegue(withIdentifier: "signInSegue", sender: self)
     }
 }

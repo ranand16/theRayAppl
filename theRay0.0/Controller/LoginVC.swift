@@ -17,29 +17,19 @@ class LoginVC: UIViewController {
     @IBOutlet weak var signUpAs: UILabel!
     @IBOutlet weak var signInOrUp: UIButton!
     @IBOutlet weak var signUpOrIn: UIButton!
-    var mode: Bool = true {
-        didSet(newValue) {
-            if(newValue == true){
-                signInOrUp.setTitle("SignIn",for: .normal)
-                signUpOrIn.setTitle("SignUp",for: .normal)
-            } else {
-                signInOrUp.setTitle("SignUp",for: .normal)
-                signUpOrIn.setTitle("SignIn",for: .normal)
-            }
-        }
-    }
-    // for toggling the signUp or signIn true...SignIn false...SignUp
+    var loginview = loginView() // to manipulate views
     var identityFrmSegue = String()
-
+    var mode = Bool()
+    
+    // for toggling the signUp or signIn true for SignIn false for SignUp
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if identityFrmSegue != ""{
-            mode = false
-            signUpAs.text = "Sign Up as \(identityFrmSegue)"
-            signInOrUp.setTitle("SignUp",for: .normal)
-            signUpOrIn.setTitle("SignIn",for: .normal)
-        }
+        print("mode == \(mode)")
+        print("identityFrmSegue \(identityFrmSegue)")
+        loginview.singInOrSignUP(button1: signInOrUp, button2: signUpOrIn, mode: mode)
+        loginview.signUpAsText(label: signUpAs, identityFromSegue: identityFrmSegue, mode: mode)
     }
     
     func alertDisplay(title: String, message: String){
@@ -51,10 +41,12 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func signUpOrInPressed(_ sender: Any) {
-        if mode{
+        if mode==true{
             mode = false
+            loginview.singInOrSignUP(button1: signInOrUp, button2: signUpOrIn, mode: mode)
         } else {
             mode = true
+            loginview.singInOrSignUP(button1: signInOrUp, button2: signUpOrIn, mode: mode)
         }
     }
     
@@ -66,8 +58,9 @@ class LoginVC: UIViewController {
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
-        if mode {
+        if mode==true {
             // signIn mode
+            print("true mode")
             if(usernameTF.text != nil && passwordTF.text != nil){
                 PFUser.logInWithUsername(inBackground: usernameTF.text!, password: passwordTF.text!, block: { (user, err) in
                     if err != nil{
@@ -88,12 +81,12 @@ class LoginVC: UIViewController {
             }
         } else {
             // signUp mode
+            print("\(mode) mode")
             if(usernameTF.text != nil && passwordTF.text != nil){
                 let user = PFUser()
                 user.username = usernameTF.text
                 user.password = passwordTF.text
                 user.email = usernameTF.text!+"@xyz.com"
-                
                 user.signUpInBackground(block: { (obj, err) in
                     if (err != nil) {
                         print("We had an error while signup", err.debugDescription)
@@ -113,8 +106,3 @@ class LoginVC: UIViewController {
         }
     }
 }
-
-
-
-
-

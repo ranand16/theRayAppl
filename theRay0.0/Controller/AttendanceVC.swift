@@ -13,7 +13,7 @@ import SwiftMoment
 class AttendanceVC: UIViewController {
     @IBOutlet weak var noClassesAssigned: UILabel!
     @IBOutlet weak var classButton: UIButton!
-
+    
     let user = User()
     let attendanceIdentification = AttendanceIdentification()
     override func viewDidLoad() {
@@ -25,7 +25,6 @@ class AttendanceVC: UIViewController {
         user.sessionCommence = currentUser?.value(forKey: "sessionCommence") as! Date
         user.isWhat = currentUser?.value(forKey: "isWhat") as! String
         let sessionCommenceMoment = moment(user.sessionCommence)
-        
         if(user.isWhat.contains("TEACHER")){// if the user is a teacher
             if(user.classesAssigned==nil || user.classesAssigned[0][0]=="0"){
                 noClassesAssigned.text = "You have no classes now"
@@ -44,11 +43,9 @@ class AttendanceVC: UIViewController {
                     noClassesAssigned.center = self.view.center
                     classButton.isHidden = true
                 } else{
-                    
                     let date = moment();
                     let diffHours = hr.hour - user.dayCommence; // say 4th hour
                     let diffDays = date.day - sessionCommenceMoment.day; // say 60 days
-                    
                     attendanceIdentification.x = diffDays/7 ; // 60/7 = 8 - 1 = 7
                     attendanceIdentification.y = ((diffDays%7)*8) + diffHours; // 4*8 + 4 = 35
                     print(user.classesAssigned)

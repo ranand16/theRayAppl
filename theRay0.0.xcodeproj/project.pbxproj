@@ -28,6 +28,7 @@
 		EDD70EA220730D4B000AF288 /* IdentityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD70EA120730D4B000AF288 /* IdentityVC.swift */; };
 		EDD70EAB20731E2E000AF288 /* IndentityCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD70EA920731E2E000AF288 /* IndentityCVC.swift */; };
 		EDD70EAC20731E2E000AF288 /* IndentityCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD70EAA20731E2E000AF288 /* IndentityCVC.xib */; };
+		EDED0D4F2092D066009A0901 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED0D4E2092D066009A0901 /* loginView.swift */; };
 		FF5FECB95A25BC4181944F77 /* Pods_theRay0_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8510574FF18DF02A52C1EFA9 /* Pods_theRay0_0.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		EDD70EA120730D4B000AF288 /* IdentityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityVC.swift; sourceTree = "<group>"; };
 		EDD70EA920731E2E000AF288 /* IndentityCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentityCVC.swift; sourceTree = "<group>"; };
 		EDD70EAA20731E2E000AF288 /* IndentityCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndentityCVC.xib; sourceTree = "<group>"; };
+		EDED0D4E2092D066009A0901 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				EDD70EA820731DF9000AF288 /* identityCell */,
 				EDC633442071041600AEEBF3 /* LaunchScreen.storyboard */,
 				EDC6333F2071041600AEEBF3 /* Main.storyboard */,
+				EDED0D4E2092D066009A0901 /* loginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				EDC6333C2071041600AEEBF3 /* AppDelegate.swift in Sources */,
 				EDD70EA220730D4B000AF288 /* IdentityVC.swift in Sources */,
 				ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */,
+				EDED0D4F2092D066009A0901 /* loginView.swift in Sources */,
 				ED3399972090E57B008AAFFF /* AttendanceObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

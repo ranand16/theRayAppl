@@ -77,7 +77,6 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = studNameTable.dequeueReusableCell(withIdentifier: "AttendanceModalCell", for: indexPath) as! AttendanceModalTVCell
         cell.firstName.text = attendanceObj.studentNames[indexPath.row] // setting the name of each child in the table
-        
         attendanceObj.todayAttendance.append(false) // making all the children present by default
         return cell
     }
@@ -93,7 +92,6 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
         attendanceObj.todayAttendance[indexPath.row] = false
 //        print(attendanceObj.todayAttendance)
     }
-    
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        cell.isSelected = true
 //    }
