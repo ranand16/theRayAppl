@@ -25,8 +25,16 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        mode = true
         loginview.singInOrSignUP(button1: signInOrUp, button2: signUpOrIn, mode: mode)
         loginview.signUpAsText(label: signUpAs, identityFromSegue: identityFrmSegue, mode: mode)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier=="signToDashboard" && identityFrmSegue != ""){
+            let destVC = segue.destination as! HomeVC
+            destVC.typeOfUser = identityFrmSegue
+        }
     }
     
     @IBAction func signUpOrInPressed(_ sender: Any) {

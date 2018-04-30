@@ -9,6 +9,6 @@
 import UIKit
 
 struct Identity {
-    let identitiesName = ["Student", "Teacher", "Sports Teacher", "Principal", "Clerk", "Driver", "Helper", "Admin"] as [String]
-    let identitiesPic = [#imageLiteral(resourceName: "student"), #imageLiteral(resourceName: "teacher"), #imageLiteral(resourceName: "sports_teacher"), #imageLiteral(resourceName: "principal"), #imageLiteral(resourceName: "clerk"), #imageLiteral(resourceName: "driver"),  #imageLiteral(resourceName: "helpher"), #imageLiteral(resourceName: "admin")] as [UIImage]
+    let identitiesName = ["Principal","Admin","Teacher","Others"] as [String]
+    let identitiesPic = [#imageLiteral(resourceName: "clerk"),#imageLiteral(resourceName: "helpher"),#imageLiteral(resourceName: "teacher"),#imageLiteral(resourceName: "admin")] as [UIImage]
 }
