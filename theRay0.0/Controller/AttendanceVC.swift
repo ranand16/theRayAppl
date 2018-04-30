@@ -24,6 +24,9 @@ class AttendanceVC: UIViewController {
         user.dayEnds = (moment(currentUser?.value(forKey: "dayEnds") as! String)?.get("H"))!;
         user.sessionCommence = currentUser?.value(forKey: "sessionCommence") as! Date
         user.isWhat = currentUser?.value(forKey: "isWhat") as! String
+        user.schoolName = currentUser?.value(forKey: "schoolName") as! String
+        user.schoolId = currentUser?.value(forKey: "schoolId") as! String
+        attendanceIdentification.schoolName = user.schoolName
         let sessionCommenceMoment = moment(user.sessionCommence)
         if(user.isWhat.contains("TEACHER")){// if the user is a teacher
             if(user.classesAssigned==nil || user.classesAssigned[0][0]=="0"){
@@ -62,6 +65,7 @@ class AttendanceVC: UIViewController {
             destVC.attendanceId.attendanceClass = attendanceIdentification.attendanceClass
             destVC.attendanceId.x = attendanceIdentification.x
             destVC.attendanceId.y = attendanceIdentification.y
+            destVC.attendanceId.schoolName = attendanceIdentification.schoolName
         }
     }
     

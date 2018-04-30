@@ -12,7 +12,7 @@ class AttendanceIdentification{
     private var _x = Int()
     private var _y = Int()
     private var _attendaceClass = String()
-
+    private var _schoolName = String()
     var x: Int{
         get{
             return _x
@@ -35,6 +35,14 @@ class AttendanceIdentification{
         }
         set{
             _attendaceClass = newValue
+        }
+    }
+    var schoolName: String{
+        get{
+            return _schoolName
+        }
+        set{
+            _schoolName = newValue
         }
     }
 }

@@ -20,25 +20,32 @@ class AttendanceModalViewController: UIViewController, UITableViewDelegate, UITa
         self.studNameTable.isHidden = true
         self.message.isHidden = true
         print(attendanceId.attendanceClass)
+        print(attendanceId.schoolName)
         self.studNameTable.register(UINib(nibName: "AttendanceModalTVCell", bundle: nil), forCellReuseIdentifier: "AttendanceModalCell")
         if(attendanceId.attendanceClass == ""){
             print("there was an error!!")
         } else{
-            let query = PFQuery(className: "AttendanceInfo")
-            query.whereKey("classId" , equalTo: self.attendanceId.attendanceClass)
-            query.findObjectsInBackground(block: { (objs, err) in
-                self.attendanceObj.studentCount = (objs?.count)!
-                if(objs?.count == nil || objs?.count == 0){
-                    AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: self.message, text: "No students in this class!!", button: nil)
-                } else{
-                    self.studNameTable.isHidden = false
-                    for obj in objs!{
-                        self.attendanceObj.attendanceObjs.append(obj)
-                        self.attendanceObj.studentNames.append(obj.value(forKey: "studName") as! String)
+            
+            if(self.attendanceId.schoolName != ""){
+                let query = PFQuery(className: "AttendanceInfo")
+                query.whereKey("classId" , equalTo: self.attendanceId.attendanceClass)
+                query.whereKey("schoolName" , equalTo: self.attendanceId.schoolName)
+                query.findObjectsInBackground(block: { (objs, err) in
+                    self.attendanceObj.studentCount = (objs?.count)!
+                    if(objs?.count == nil || objs?.count == 0){
+                        AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: self.message, text: "No students in this class!!", button: nil)
+                    } else{
+                        self.studNameTable.isHidden = false
+                        for obj in objs!{
+                            self.attendanceObj.attendanceObjs.append(obj)
+                            self.attendanceObj.studentNames.append(obj.value(forKey: "studName") as! String)
+                        }
+                        self.studNameTable.reloadData()
                     }
-                    self.studNameTable.reloadData()
-                }
-            })
+                })
+            } else{
+                
+            }
         }
     }
     
