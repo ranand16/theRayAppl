@@ -10,23 +10,24 @@ import UIKit
 import Parse
 
 class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    var typeOfUser = String()
+    
     let HomeStruct = homeCellStruct()
+    var typeOfUser = String()
+    var isWhat = PFUser.current()?.value(forKey: "isWhat") as! String
     @IBOutlet weak var homeCV: UICollectionView!
     override var prefersStatusBarHidden: Bool { return  true } // hides the status bar i.e; battery bar
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homeCV.register(UINib(nibName: "HomeCVC", bundle: nil), forCellWithReuseIdentifier: "homeCell")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return HomeStruct.homeCellText.count
+        return HomeStruct.homeCellText[isWhat]!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = homeCV.dequeueReusableCell(withReuseIdentifier: "homeCell", for: indexPath) as! HomeCVC
-        cell.homeCellLabel.text = HomeStruct.homeCellText[indexPath.row]
+        cell.homeCellLabel.text = HomeStruct.homeCellText[isWhat]?[indexPath.row]
         cell.homeCellImage.image = HomeStruct.homeCellImages[indexPath.row]
         
         return cell
