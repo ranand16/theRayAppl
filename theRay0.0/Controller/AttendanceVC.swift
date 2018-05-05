@@ -36,12 +36,23 @@ class AttendanceVC: UIViewController {
                 if(hr.hour<user.dayCommence || hr.hour>user.dayEnds){
                     AttendanceClassView.Instance.noClassAssignedLabel(view: self.view, label: noClassesAssigned, text: "You are only allowed to take attendance in school hours", button: classButton)
                 } else{
-                    let date = moment();
+//                    let date = moment();
+                    let date = Date()
+                    print("sessionCommence: \(date)")
+                    print("sessionCommence: \(sessionCommenceMoment)")
+                    print("sessionCommence: \(sessionCommenceMoment.day)")
                     let diffHours = hr.hour - user.dayCommence; // say 4th hour
-                    let diffDays = date.day - sessionCommenceMoment.day; // say 60 days
-                    attendanceIdentification.x = diffDays/7 ; // 60/7 = 8 - 1 = 7
-                    attendanceIdentification.y = ((diffDays%7)*8) + diffHours; // 4*8 + 4 = 35
-                    print(user.classesAssigned)
+                    print("diffhours: \(diffHours)")
+//                    let diffDays = sessionCommenceMoment.diff(date); // say 60 days
+                    
+                    let calendar = NSCalendar.current
+                    let diffDays = calendar.dateComponents([.day], from: user.sessionCommence, to: date).day// say 60 days
+                    print(diffDays)
+                    attendanceIdentification.x = diffDays!/7 ; // 60/7 = 8 - 1 = 7
+                    print(diffDays!/7)
+                    attendanceIdentification.y = ((diffDays!%7)*8) + diffHours; // 4*8 + 4 = 35
+                    print(((diffDays!%7)*8) + diffHours)
+//                    print(user.classesAssigned)
 //                    moment().format('dddd');
                     let weekDay = moment().weekdayName
                     let weeKDayNum = moment().weekday
