@@ -53,9 +53,21 @@ class LoginVC: UIViewController {
             // signIn mode
             print("true mode")
             if(usernameTF.text != "" || passwordTF.text != ""){
-                PFUser.logInWithUsername(inBackground: usernameTF.text!, password: passwordTF.text!, block: { (user, err) in
-                    if err != nil{
-                        AlertIndicator.Instance.alertDisplay(viewController: self, title: "Error", message: "Please try again later")
+//                PFUser.logInWithUsername(inBackground: usernameTF.text!, password: passwordTF.text!, block: { (user, err) in
+//                    if err != nil{
+//                        AlertIndicator.Instance.alertDisplay(viewController: self, title: "Error", message: "Please try again later")
+//                        AlertIndicator.Instance.hideActivityIndicator()
+//                        self.usernameTF.text = ""
+//                        self.passwordTF.text = ""
+//                    } else {
+//                        AlertIndicator.Instance.hideActivityIndicator()
+//                        self.performSegue(withIdentifier: "signToDashboard", sender: self)
+//                    }
+//                })
+                
+                AuthProvider.Instance.signIn(withEmail: usernameTF.text!, password: passwordTF.text!, loginhandler: { (message) in
+                    if message != nil{
+                        AlertIndicator.Instance.alertDisplay(viewController: self, title: "There was a problem", message: message!)
                         AlertIndicator.Instance.hideActivityIndicator()
                         self.usernameTF.text = ""
                         self.passwordTF.text = ""
@@ -64,6 +76,7 @@ class LoginVC: UIViewController {
                         self.performSegue(withIdentifier: "signToDashboard", sender: self)
                     }
                 })
+                
             } else {
                 AlertIndicator.Instance.hideActivityIndicator()
                 AlertIndicator.Instance.alertDisplay(viewController: self, title: "Error", message: "Please fill all fields")

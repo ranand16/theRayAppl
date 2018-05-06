@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0DC443209E89DD00479EE0 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0DC442209E89DD00479EE0 /* AuthProvider.swift */; };
 		ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED146688208595D80024D6CC /* weekdayNumber.swift */; };
 		ED27ED66208F7E6C00146495 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED27ED65208F7E6C00146495 /* User.swift */; };
 		ED290738207BC1DC00E4C493 /* HomeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED290736207BC1DC00E4C493 /* HomeCVC.swift */; };
@@ -38,6 +39,7 @@
 		8510574FF18DF02A52C1EFA9 /* Pods_theRay0_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theRay0_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF144D545290E3DD2C7DEDD /* Pods-theRay0.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.release.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.release.xcconfig"; sourceTree = "<group>"; };
 		CA2BAFD4DD1FA4B3A8FE0235 /* Pods-theRay0.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.debug.xcconfig"; sourceTree = "<group>"; };
+		ED0DC442209E89DD00479EE0 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		ED146688208595D80024D6CC /* weekdayNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekdayNumber.swift; sourceTree = "<group>"; };
 		ED27ED65208F7E6C00146495 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED290736207BC1DC00E4C493 /* HomeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCVC.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF189AF209435DF00C5D7DA /* AlertIndicator.swift */,
+				ED0DC442209E89DD00479EE0 /* AuthProvider.swift */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				EDBAD56E20863C3E00C34885 /* AttendanceModalTVCell.swift in Sources */,
 				EDC6333C2071041600AEEBF3 /* AppDelegate.swift in Sources */,
 				EDD70EA220730D4B000AF288 /* IdentityVC.swift in Sources */,
+				ED0DC443209E89DD00479EE0 /* AuthProvider.swift in Sources */,
 				ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */,
 				EDF189B22094466A00C5D7DA /* AttendanceClassView.swift in Sources */,
 				EDED0D4F2092D066009A0901 /* loginView.swift in Sources */,
