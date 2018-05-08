@@ -19,27 +19,40 @@ class Student{
         get{
             return _uid
         }
+        set{
+            _uid = newValue
+        }
     }
     var emailId: String{
         get{
             return _emailid
+        }
+        set{
+            _emailid = newValue
         }
     }
     var classId: String{
         get{
             return _classid
         }
+        set{
+            _classid = newValue
+        }
     }
     var attendanceInfo: [[String]]{
         get{
             return _attendanceinfo
+        }
+        set{
+            _attendanceinfo = newValue
         }
     }
     var studentName: String{
         get{
             return _studentname
         }
+        set{
+            _studentname = newValue
+        }
     }
-    
-    
 }
