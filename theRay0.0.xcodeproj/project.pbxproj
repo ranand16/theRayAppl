@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED024250209F1E6B00D53179 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02424F209F1E6B00D53179 /* SearchVC.swift */; };
+		ED024252209F2D1500D53179 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED024251209F2D1500D53179 /* Student.swift */; };
 		ED0DC443209E89DD00479EE0 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0DC442209E89DD00479EE0 /* AuthProvider.swift */; };
 		ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED146688208595D80024D6CC /* weekdayNumber.swift */; };
+		ED21EB3520A0AB1D00FBA976 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21EB3320A0AB1D00FBA976 /* SearchTVC.swift */; };
+		ED21EB3620A0AB1D00FBA976 /* SearchTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED21EB3420A0AB1D00FBA976 /* SearchTVC.xib */; };
 		ED27ED66208F7E6C00146495 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED27ED65208F7E6C00146495 /* User.swift */; };
 		ED290738207BC1DC00E4C493 /* HomeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED290736207BC1DC00E4C493 /* HomeCVC.swift */; };
 		ED290739207BC1DC00E4C493 /* HomeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED290737207BC1DC00E4C493 /* HomeCVC.xib */; };
@@ -39,8 +43,12 @@
 		8510574FF18DF02A52C1EFA9 /* Pods_theRay0_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theRay0_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF144D545290E3DD2C7DEDD /* Pods-theRay0.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.release.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.release.xcconfig"; sourceTree = "<group>"; };
 		CA2BAFD4DD1FA4B3A8FE0235 /* Pods-theRay0.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theRay0.0.debug.xcconfig"; path = "Pods/Target Support Files/Pods-theRay0.0/Pods-theRay0.0.debug.xcconfig"; sourceTree = "<group>"; };
+		ED02424F209F1E6B00D53179 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		ED024251209F2D1500D53179 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		ED0DC442209E89DD00479EE0 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		ED146688208595D80024D6CC /* weekdayNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekdayNumber.swift; sourceTree = "<group>"; };
+		ED21EB3320A0AB1D00FBA976 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
+		ED21EB3420A0AB1D00FBA976 /* SearchTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTVC.xib; sourceTree = "<group>"; };
 		ED27ED65208F7E6C00146495 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED290736207BC1DC00E4C493 /* HomeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCVC.swift; sourceTree = "<group>"; };
 		ED290737207BC1DC00E4C493 /* HomeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCVC.xib; sourceTree = "<group>"; };
@@ -104,6 +112,15 @@
 				EDBAD56D20863C3E00C34885 /* AttendanceModalTVCell.xib */,
 			);
 			path = AttendanceModalCell;
+			sourceTree = "<group>";
+		};
+		ED21EB3220A0A6F100FBA976 /* SearchCell */ = {
+			isa = PBXGroup;
+			children = (
+				ED21EB3320A0AB1D00FBA976 /* SearchTVC.swift */,
+				ED21EB3420A0AB1D00FBA976 /* SearchTVC.xib */,
+			);
+			path = SearchCell;
 			sourceTree = "<group>";
 		};
 		ED290731207BC14A00E4C493 /* HomeCell */ = {
@@ -173,6 +190,7 @@
 				ED27ED65208F7E6C00146495 /* User.swift */,
 				ED3399942090D1AE008AAFFF /* AttendanceIdentification.swift */,
 				ED3399962090E57B008AAFFF /* AttendanceObject.swift */,
+				ED024251209F2D1500D53179 /* Student.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +198,7 @@
 		EDF56CB22071CE49007EDE3A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED21EB3220A0A6F100FBA976 /* SearchCell */,
 				ED14668A2085A3EC0024D6CC /* AttendanceModalCell */,
 				ED290731207BC14A00E4C493 /* HomeCell */,
 				EDD70EA820731DF9000AF288 /* identityCell */,
@@ -200,6 +219,7 @@
 				ED29073E207BC5D400E4C493 /* HomeVC.swift */,
 				ED31B117207FC1580043B8A3 /* AttendanceVC.swift */,
 				EDCF9244208B7E630079B705 /* AttendanceModalViewController.swift */,
+				ED02424F209F1E6B00D53179 /* SearchVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDBAD56F20863C3E00C34885 /* AttendanceModalTVCell.xib in Resources */,
+				ED21EB3620A0AB1D00FBA976 /* SearchTVC.xib in Resources */,
 				EDC633462071041600AEEBF3 /* LaunchScreen.storyboard in Resources */,
 				EDD70EAC20731E2E000AF288 /* IndentityCVC.xib in Resources */,
 				EDC633432071041600AEEBF3 /* Assets.xcassets in Resources */,
@@ -356,8 +377,11 @@
 				ED0DC443209E89DD00479EE0 /* AuthProvider.swift in Sources */,
 				ED146689208595D80024D6CC /* weekdayNumber.swift in Sources */,
 				EDF189B22094466A00C5D7DA /* AttendanceClassView.swift in Sources */,
+				ED024250209F1E6B00D53179 /* SearchVC.swift in Sources */,
 				EDED0D4F2092D066009A0901 /* loginView.swift in Sources */,
 				EDF189B0209435DF00C5D7DA /* AlertIndicator.swift in Sources */,
+				ED21EB3520A0AB1D00FBA976 /* SearchTVC.swift in Sources */,
+				ED024252209F2D1500D53179 /* Student.swift in Sources */,
 				ED3399972090E57B008AAFFF /* AttendanceObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

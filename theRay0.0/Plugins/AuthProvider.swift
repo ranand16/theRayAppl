@@ -23,6 +23,7 @@ class AuthProvider{
     static var Instance: AuthProvider{
         return _instance
     }
+    
     func signIn(withEmail: String, password: String, loginhandler: LoginHandler?){
         PFUser.logInWithUsername(inBackground: withEmail, password: password) { (user, err) in
             if err != nil{
@@ -55,7 +56,6 @@ class AuthProvider{
             default:
                 loginHandler?(errorCodes.PROBLEM_IN_CONNECTION)
             }
-            
         }
     }
 }
