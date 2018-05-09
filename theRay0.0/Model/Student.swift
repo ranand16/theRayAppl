@@ -13,7 +13,7 @@ class Student{
     private var _emailid = String()
     private var _classid = String()
     private var _studentname = String()
-    private var _attendanceinfo = [[String]]()
+    private var _attendanceinfo = [[Int]]()
     
     var uId: String{
         get{
@@ -39,7 +39,7 @@ class Student{
             _classid = newValue
         }
     }
-    var attendanceInfo: [[String]]{
+    var attendanceInfo: [[Int]]{
         get{
             return _attendanceinfo
         }
