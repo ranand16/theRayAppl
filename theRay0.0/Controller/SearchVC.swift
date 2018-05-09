@@ -42,12 +42,12 @@ class SearchVC: UIViewController , UITableViewDelegate, UITableViewDataSource, U
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard searchText.isEmpty else {
+        guard !searchText.isEmpty else {
             updatedSearchResultsArray = studentResultsArray
             searchTable.reloadData()
             return
         }
-        updatedSearchResultsArray = studentResultsArray.filter({ (stud) -> Bool in
+        updatedSearchResultsArray = studentResultsArray.filter({ stud -> Bool in
             stud.studentName.lowercased().contains(searchText.lowercased())
         })
         searchTable.reloadData()
