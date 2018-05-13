@@ -36,6 +36,7 @@
 		EDED0D4F2092D066009A0901 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED0D4E2092D066009A0901 /* loginView.swift */; };
 		EDF189B0209435DF00C5D7DA /* AlertIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF189AF209435DF00C5D7DA /* AlertIndicator.swift */; };
 		EDF189B22094466A00C5D7DA /* AttendanceClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF189B12094466A00C5D7DA /* AttendanceClassView.swift */; };
+		EDF8888620A7D19400988925 /* StudentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF8888520A7D19400988925 /* StudentDetailVC.swift */; };
 		FF5FECB95A25BC4181944F77 /* Pods_theRay0_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8510574FF18DF02A52C1EFA9 /* Pods_theRay0_0.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		EDED0D4E2092D066009A0901 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
 		EDF189AF209435DF00C5D7DA /* AlertIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertIndicator.swift; sourceTree = "<group>"; };
 		EDF189B12094466A00C5D7DA /* AttendanceClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceClassView.swift; sourceTree = "<group>"; };
+		EDF8888520A7D19400988925 /* StudentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				ED31B117207FC1580043B8A3 /* AttendanceVC.swift */,
 				EDCF9244208B7E630079B705 /* AttendanceModalViewController.swift */,
 				ED02424F209F1E6B00D53179 /* SearchVC.swift */,
+				EDF8888520A7D19400988925 /* StudentDetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				EDF189B22094466A00C5D7DA /* AttendanceClassView.swift in Sources */,
 				ED024250209F1E6B00D53179 /* SearchVC.swift in Sources */,
 				EDED0D4F2092D066009A0901 /* loginView.swift in Sources */,
+				EDF8888620A7D19400988925 /* StudentDetailVC.swift in Sources */,
 				EDF189B0209435DF00C5D7DA /* AlertIndicator.swift in Sources */,
 				ED21EB3520A0AB1D00FBA976 /* SearchTVC.swift in Sources */,
 				ED024252209F2D1500D53179 /* Student.swift in Sources */,
