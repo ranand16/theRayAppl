@@ -53,6 +53,16 @@ class SearchVC: UIViewController , UITableViewDelegate, UITableViewDataSource, U
         searchTable.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = searchTable.cellForRow(at: searchTable.indexPathForSelectedRow!) as! SearchTVC
+        let destVC = segue.destination as! StudentDetailVC
+        destVC.searchStudentDetails = updatedSearchResultsArray[searchTable.indexPathForSelectedRow!.row]
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toStudDetail", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return updatedSearchResultsArray.count
     }

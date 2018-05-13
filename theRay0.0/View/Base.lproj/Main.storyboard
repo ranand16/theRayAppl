@@ -448,6 +448,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="uei-LP-8V8"/>
                     </view>
+                    <connections>
+                        <outlet property="studClass" destination="ruj-Hm-BiS" id="OjT-2M-9YQ"/>
+                        <outlet property="studIMage" destination="Hhr-Eo-EaM" id="Xla-1L-B5N"/>
+                        <outlet property="studName" destination="D1G-6M-L78" id="F2B-Vz-Exk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S5b-Oh-Mj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

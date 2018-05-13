@@ -9,10 +9,15 @@
 import UIKit
 
 class StudentDetailVC: UIViewController {
-
+    
+    @IBOutlet weak var studClass: UILabel!
+    @IBOutlet weak var studName: UILabel!
+    @IBOutlet weak var studIMage: UIImageView!
+    var searchStudentDetails = Student()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        studName.text = searchStudentDetails.studentName
+        studClass.text = searchStudentDetails.classId
+        studIMage.image = #imageLiteral(resourceName: "student")
     }
 }
